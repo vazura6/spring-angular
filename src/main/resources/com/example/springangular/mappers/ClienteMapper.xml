@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.springangular.mappers.ClienteMapper">
+
+    <select id="getById" resultType="com.example.springangular.dtos.Cliente">
+        sselect 
+            id, 
+            nombre,
+            apellidos,
+            email,
+            "createAt"
+        from public."Cliente"
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="findAll" resultType="com.example.springangular.dtos.Cliente">
+        select 
+            id, 
+            nombre,
+            apellidos,
+            email,
+            "createAt"
+        from public."Cliente"
+    </select>
+        
+
+</mapper>
