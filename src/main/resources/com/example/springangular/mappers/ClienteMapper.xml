@@ -10,8 +10,8 @@
             nombre,
             apellidos,
             email,
-            "createAt"
-        from public."Cliente"
+            create_at
+        from public.cliente
         where id = #{id,jdbcType=INTEGER}
     </select>
 
@@ -21,8 +21,8 @@
             nombre,
             apellidos,
             email,
-            "createAt"
-        from public."Cliente"
+            create_at
+        from public.cliente
     </select>
         
 
