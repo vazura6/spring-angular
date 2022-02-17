@@ -11,8 +11,14 @@ import org.apache.ibatis.annotations.Param;
 public interface ClienteMapper {
     
 
-    List<Cliente> findAll();
+    public List<Cliente> findAll();
 
-    Cliente getById(@Param("id") Number id);
+    public Cliente getById(@Param("id") Integer id);
+
+    public int insert(Cliente cliente);
+
+    public int delete(Cliente cliente);
+
+    public int update(Cliente cliente);
 
 }

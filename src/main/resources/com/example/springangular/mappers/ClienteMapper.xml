@@ -5,14 +5,14 @@
 <mapper namespace="com.example.springangular.mappers.ClienteMapper">
 
     <select id="getById" resultType="com.example.springangular.dtos.Cliente">
-        sselect 
+        select 
             id, 
             nombre,
             apellidos,
             email,
             create_at
         from public.cliente
-        where id = #{id,jdbcType=INTEGER}
+        where id = #{id}
     </select>
 
     <select id="findAll" resultType="com.example.springangular.dtos.Cliente">
@@ -24,6 +24,32 @@
             create_at
         from public.cliente
     </select>
-        
+
+    <delete id = "delete" parameterType="com.example.springangular.dtos.Cliente">
+        delete from public.cliente where id = #{id}
+    </delete>
+
+    <insert id="insert"  parameterType="com.example.springangular.dtos.Cliente" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into public.cliente (
+            nombre,
+            apellidos,
+            email,
+            create_at
+        )
+        values (
+            #{nombre},
+            #{apellidos},
+            #{email},
+            #{create_at}
+        )
+    </insert>
+
+    <update id = "update" parameterType="com.example.springangular.dtos.Cliente">
+        update public.cliente 
+            set nombre =  #{nombre},
+                apellidos = #{apellidos},
+                email = #{email}
+        where id = #{id}
+    </update>
 
 </mapper>
